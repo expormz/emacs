@@ -1,0 +1,6 @@
+[submodule "lib/helm"]
+	path = lib/helm
+	url = git@github.com:emacs-helm/helm
+[submodule "lib/yasnippet"]
+	path = lib/yasnippet
+	url = git@github.com:capitaomorte/yasnippet
