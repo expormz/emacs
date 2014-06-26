@@ -53,6 +53,9 @@
 ;;heml mode
 (add-to-list 'load-path "~/.emacs.d/lib/helm")
 (require 'helm-config)
+;;emmet
+(add-to-list 'load-path "~/.emacs.d/lib/emmet-mode")
+(require 'emmet-mode)
 (helm-mode 1)
 ;;magit
 (require 'magit)
