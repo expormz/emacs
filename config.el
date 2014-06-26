@@ -31,7 +31,7 @@
 (tool-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq x-select-enable-clipboard t)
-(cua-mode 1)
+;;(cua-mode 1)
  ;;tab config
 (setq-default tab-width 4)
 (setq tab-width 4)
@@ -47,7 +47,9 @@
 (prefer-coding-system 'utf-8)
 ;;disable CJK coding/encoding (Chinese/Japanese/Korean characters)
 (setq utf-translate-cjk-mode nil)
-
+;;powerline
+(add-to-list 'load-path "~/.emacs.d/lib/powerline")
+(require 'powerline)
 ;;heml mode
 (add-to-list 'load-path "~/.emacs.d/lib/helm")
 (require 'helm-config)
