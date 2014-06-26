@@ -4,3 +4,6 @@
 [submodule "lib/yasnippet"]
 	path = lib/yasnippet
 	url = git@github.com:capitaomorte/yasnippet
+[submodule "lib/powerline"]
+	path = lib/powerline
+	url = git@github.com:jonathanchu/emacs-powerline
