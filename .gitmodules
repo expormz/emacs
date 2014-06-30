@@ -13,3 +13,6 @@
 [submodule "lib/helm-emmet"]
 	path = lib/helm-emmet
 	url = git@github.com:yasuyk/helm-emmet
+[submodule "lib/browse-king-ring"]
+	path = lib/browse-king-ring
+	url = git@github.com:browse-kill-ring/browse-kill-ring

@@ -6,13 +6,13 @@
 ;;font config
 (when (display-graphic-p)
   (setq fonts
-        (cond ((eq system-type 'darwin)     '("Monaco"     "STHeiti"))
+        (cond ((eq system-type 'darwin)     '("Inconsolata"     "STHeiti"))
               ((eq system-type 'gnu/linux)  '("Menlo"     "WenQuanYi Zen Hei"))
               ((eq system-type 'windows-nt) '("Consolas"  "Microsoft Yahei"))))
 
   (setq face-font-rescale-alist '(("STHeiti" . 1.1) ("Microsoft Yahei" . 1.1) ("WenQuanYi Zen Hei" . 1.1)))
   (set-face-attribute 'default nil :font
-                      (format "%s:pixelsize=%d" (car fonts) 12))
+                      (format "%s:pixelsize=%d" (car fonts) 15))
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family (car (cdr fonts))))))
@@ -24,6 +24,7 @@
 ;;base config
 (global-linum-mode 1)
 (column-number-mode 1)
+(global-hl-line-mode 1)
 (setq inhibit-startup-message t)
 (setq inhibit-startup-screen t)
 (setq enable-recursive-minibuffers t)
@@ -36,7 +37,11 @@
 (setq-default tab-width 4)
 (setq tab-width 4)
 (electric-indent-mode 1)
-
+;;exec-path-from-shell
+(add-to-list 'load-path "~/.emacs.d/lib/exec-path-from-shell")
+(require 'exec-path-from-shell)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 ;;encode config
 (set-language-environment 'utf-8)
 (set-default-coding-systems 'utf-8)
@@ -56,9 +61,26 @@
 ;;emmet
 (add-to-list 'load-path "~/.emacs.d/lib/emmet-mode")
 (require 'emmet-mode)
+(add-hook 'emmet-mode-hook (lambda () (
+									   setq emmet-indentation 4
+											)))
+
+;;helm-emmet
+
+
 (helm-mode 1)
+(add-to-list 'load-path "~/.emacs.d/lib/helm-emmet")
 ;;magit
 (require 'magit)
+;;browse kill ring
+(add-to-list 'load-path "~/.emacs.d/lib/browse-king-ring")
+(require 'browse-kill-ring)
+(browse-kill-ring-default-keybindings)
+(setq browse-kill-ring-highlight-current-entry t)
+(setq browse-kill-ring-no-duplicates t)
+(setq browse-kill-ring-display-duplicates nil)
+(setq browse-kill-ring-highlight-inserted-item nil)
+
 ;;yasnapper
 (add-to-list 'load-path "~/.emacs.d/lib/yasnippet")
 (require 'yasnippet)
@@ -106,24 +128,53 @@
 ;;go-mode
 (require 'go-mode-load)
 ;;path config
-(defun my-add-path (path-element)
-  "Add the specified PATH-ELEMENT to the Emacs PATH."
-  (interactive "DEnter directory to be added to path: ")
-  (if (file-directory-p path-element)
-     (progn
-       (setenv "PATH" (concat (expand-file-name path-element) path-separator (getenv "PATH")))
-       (add-to-list 'exec-path (expand-file-name path-element)))))
+;;(defun my-add-path (path-element)
+;;  "Add the specified PATH-ELEMENT to the Emacs PATH."
+;;  (interactive "DEnter directory to be added to path: ")
+;;  (if (file-directory-p path-element)
+;;     (progn
+;;       (setenv "PATH" (concat (expand-file-name path-element) path-separator (getenv "PATH")))
+;;       (add-to-list 'exec-path (expand-file-name path-element)))))
 
-(if (fboundp 'my-add-path)
-   (let ((my-paths (list "/bin" "/usr/local/go/bin" "/sbin" "/usr/bin" "/usr/local/bin" "/usr/local/git/bin")))
-      (dolist (path-to-add my-paths (getenv "PATH"))
-         (my-add-path path-to-add))))
-
+;;(if (fboundp 'my-add-path)
+;;   (let ((my-paths (list "/bin" "/usr/local/go/bin" "/sbin" "/usr/bin" "/usr/local/bin" "/usr/local/git/bin")))
+;;      (dolist (path-to-add my-paths (getenv "PATH"))
+;;         (my-add-path path-to-add))))
+;;mode-hook
+(add-hook 'html-mode-hook 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode)
+(add-hook 'css-mode-hook 'emmet-mode)
 ;;key bindings
 (global-set-key (kbd "C-c r") 'helm-recentf)
 (global-set-key (kbd "C-c p") 'helm-browse-project)
 (global-set-key (kbd "C-c l") 'helm-locate)
 (global-set-key (kbd "C-c i") 'helm-imenu)
+(global-set-key (kbd "C-,") 'set-mark-command)
+;;scroll other window
+(global-set-key (kbd "C-M-]") 'scroll-other-window)
+(global-set-key (kbd "C-M-[") 'scroll-other-window-down)
+
+;;auto-modes
+(setq auto-mode-alist (cons '("\\.ejs$" . html-mode) auto-mode-alist))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
