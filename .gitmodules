@@ -16,3 +16,6 @@
 [submodule "lib/browse-king-ring"]
 	path = lib/browse-king-ring
 	url = git@github.com:browse-kill-ring/browse-kill-ring
+[submodule "lib/ace-jump-mode"]
+	path = lib/ace-jump-mode
+	url = git@github.com:winterTTr/ace-jump-mode
