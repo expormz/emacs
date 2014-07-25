@@ -5,6 +5,7 @@
 							   (require 'init-pkgmgr)
 							   (require 'init-path)
 							   (require 'init-package)
+							   (require 'init-functions)
 							   (require 'init-bindings)
 							   )
 		  )

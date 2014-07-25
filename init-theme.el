@@ -4,5 +4,6 @@
 ;;(load-file "~/.emacs.d/lib/cyberpunk.el")
 ;;(color-theme-cyberpunk)
 
-(require 'moe-theme)
-(moe-dark)
+;;(require 'moe-theme)
+;;(moe-dark)
+(load-theme 'wombat)

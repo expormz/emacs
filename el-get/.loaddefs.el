@@ -3,6 +3,27 @@
 ;;; Code:
 
 
+;;;### (autoloads (coffee-mode) "coffee-mode/coffee-mode" "coffee-mode/coffee-mode.el"
+;;;;;;  (21439 32815 0 0))
+;;; Generated autoloads from coffee-mode/coffee-mode.el
+
+(autoload 'coffee-mode "coffee-mode/coffee-mode" "\
+Major mode for editing CoffeeScript.
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.coffee\\'" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("\\.iced\\'" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("Cakefile\\'" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("\\.cson\\'" . coffee-mode))
+
+(add-to-list 'interpreter-mode-alist '("coffee" . coffee-mode))
+
+;;;***
+
 ;;;### (autoloads (el-get-checksum el-get-make-recipes el-get-cd
 ;;;;;;  el-get-self-update el-get-update-packages-of-type el-get-update-all
 ;;;;;;  el-get-version) "el-get/el-get" "el-get/el-get.el" (21430
@@ -62,7 +83,7 @@ Display a list of packages.
 ;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
 ;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
 ;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
-;;;;;;  "el-get/el-get-status.el") (21430 42862 819978 0))
+;;;;;;  "el-get/el-get-status.el") (21439 32815 934402 0))
 
 ;;;***
 

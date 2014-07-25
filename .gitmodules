@@ -19,3 +19,12 @@
 [submodule "lib/ace-jump-mode"]
 	path = lib/ace-jump-mode
 	url = git@github.com:winterTTr/ace-jump-mode
+[submodule "el-get/el-get"]
+	path = el-get/el-get
+	url = git@github.com:dimitri/el-get
+[submodule "lib/npm"]
+	path = lib/npm
+	url = git@github.com:/azer/npm.el
+[submodule "lib/sourcemap"]
+	path = lib/sourcemap
+	url = git@github.com:syohex/emacs-sourcemap

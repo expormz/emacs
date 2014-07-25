@@ -1,0 +1,4 @@
+(provide 'init-functions)
+(defun refresh-file ()
+  (interactive)
+  (revert-buffer t (not (buffer-modified-p)) t))
