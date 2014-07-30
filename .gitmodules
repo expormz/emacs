@@ -28,3 +28,6 @@
 [submodule "lib/sourcemap"]
 	path = lib/sourcemap
 	url = git@github.com:syohex/emacs-sourcemap
+[submodule "el-get/coffee-mode"]
+	path = el-get/coffee-mode
+	url = git@github.com:defunkt/coffee-mode
