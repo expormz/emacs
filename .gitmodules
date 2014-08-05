@@ -31,3 +31,6 @@
 [submodule "el-get/coffee-mode"]
 	path = el-get/coffee-mode
 	url = git@github.com:defunkt/coffee-mode
+[submodule "lib/ac-cider"]
+	path = lib/ac-cider
+	url = git@github.com:clojure-emacs/ac-cider
