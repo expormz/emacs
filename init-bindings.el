@@ -10,6 +10,7 @@
 (global-set-key (kbd "C-c o") 'ffap-menu)
 (global-set-key (kbd "C-b") 'switch-to-buffer)
 (global-set-key (kbd "C-x r") 'refresh-file)
+(global-set-key (kbd "C-c m") 'helm-mini)
 				
 ;;other window global
 (global-set-key (kbd "C-M-]") 'scroll-other-window)

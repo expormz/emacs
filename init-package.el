@@ -21,6 +21,9 @@
 
 ;;helm-emmet
 
+(require 'helm-eshell)
+(require 'helm-files)
+(require 'helm-grep)
 
 (helm-mode 1)
 ;;(add-to-list 'load-path "~/.emacs.d/lib/helm-emmet")

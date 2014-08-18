@@ -5,7 +5,7 @@
   (when (display-graphic-p)
 	(setq fonts
 		  (cond ((eq system-type 'darwin)     '("Inconsolata"     "STHeiti"))
-				((eq system-type 'gnu/linux)  '("Inconsolata"     "文泉驿等宽微米黑"))
+				((eq system-type 'gnu/linux)  '("Monospace"     "文泉驿等宽微米黑"))
 				((eq system-type 'windows-nt) '("Consolas"  "Microsoft Yahei"))))
 
 	(setq face-font-rescale-alist '(("STHeiti" . 1.1) ("Microsoft Yahei" . 1.1) ("WenQuanYi Zen Hei" . 1.1)))
@@ -41,6 +41,7 @@
 (setq-default tab-width 4)
 (setq tab-width 4)
 (electric-indent-mode 1)
+(electric-pair-mode 1)
 ;;exec-path-from-shell
 (add-to-list 'load-path "~/.emacs.d/lib/exec-path-from-shell")
 (require 'exec-path-from-shell)
@@ -57,3 +58,6 @@
 ;;disable CJK coding/encoding (Chinese/Japanese/Korean characters)
 (setq utf-translate-cjk-mode nil)
 ;
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(recentf-mode 1)
