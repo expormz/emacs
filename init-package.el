@@ -24,7 +24,7 @@
 (require 'helm-eshell)
 (require 'helm-files)
 (require 'helm-grep)
-
+(when (not (require 'helm-cmd-t nil t)) (package-install 'helm-cmd-t))
 (helm-mode 1)
 ;;(add-to-list 'load-path "~/.emacs.d/lib/helm-emmet")
 ;;magit
@@ -169,6 +169,36 @@
 
 (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
 (add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
+;;projectile mode
+(when (not (require 'projectile nil t)) (package-install 'projectile))
+(projectile-global-mode)
+(defun my-helm-omni (&rest arg) 
+  ;; just in case someone decides to pass an argument, helm-omni won't fail.
+  (interactive)
+  (helm-other-buffer
+    (append '(
+			  helm-source-buffers-list
+			  helm-source-recentf)    ;; all recent files
+
+      ;; projectile errors out if you're not in a project 
+      (if (projectile-project-p) ;; so look before you leap
+        '(helm-source-projectile-files-list
+           helm-source-projectile-recentf-list
+           helm-source-projectile-buffers-list)
+        '())
+
+      '( 
+         helm-source-files-in-current-dir ;; files in current directory
+         helm-source-locate               ;; file anywhere
+         helm-source-bookmarks            ;; bookmarks too
+         helm-source-buffer-not-found     ;; ask to create a buffer otherwise
+         ))
+    "*helm-omni*"))
+
+(when (not (require 'rainbow-mode nil t)) (package-install 'rainbow-mode))
+(rainbow-mode t)
+
 
 
 

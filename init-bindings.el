@@ -2,7 +2,7 @@
 
 ;;key bindings
 (global-set-key (kbd "C-c r") 'helm-recentf)
-(global-set-key (kbd "C-c p") 'helm-browse-project)
+(global-set-key (kbd "C-c p") 'helm-projectile)
 (global-set-key (kbd "C-c l") 'helm-locate)
 (global-set-key (kbd "C-c i") 'helm-imenu)
 (global-set-key (kbd "C-,") 'set-mark-command)
@@ -11,7 +11,7 @@
 (global-set-key (kbd "C-b") 'switch-to-buffer)
 (global-set-key (kbd "C-x r") 'refresh-file)
 (global-set-key (kbd "C-c m") 'helm-mini)
-				
+(global-set-key (kbd "C-c o") 'my-helm-omni)
 ;;other window global
 (global-set-key (kbd "C-M-]") 'scroll-other-window)
 (global-set-key (kbd "C-M-[") 'scroll-other-window-down)
@@ -43,7 +43,8 @@
   "r"'helm-recentf
   "y" 'evil-paste-pop
   "f" 'ace-jump-mode
-  "h" 'refresh-file)
+  "h" 'refresh-file
+  "p" 'helm-projectile)
 
 (global-set-key (kbd "M-n i") 'npm-instal)
 (global-set-key (kbd "M-n n") 'npm-new)
